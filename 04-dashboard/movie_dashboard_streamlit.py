@@ -7,8 +7,8 @@ from streamlit_folium import folium_static
 from pathlib import Path
 
 # Load datasets
-df = pd.read_csv(r'movies-dashboard/04-dashboard/data_dashboard/df_final.csv')
-df15 = pd.read_csv(r'movies-dashboard/04-dashboard/data_dashboard/heatmap3.csv')
+df = pd.read_csv(r'04-dashboard/data_dashboard/df_final.csv')
+df15 = pd.read_csv(r'04-dashboard/data_dashboard/heatmap3.csv')
 
 # Set custom theme for a cleaner design
 st.set_page_config(page_title="Film Production Dashboard of IMDb Movie Dataset", page_icon="🎬", layout="wide")
