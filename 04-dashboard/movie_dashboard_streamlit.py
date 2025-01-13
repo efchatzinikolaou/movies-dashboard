@@ -5,48 +5,15 @@ import folium
 from folium.plugins import HeatMap
 from streamlit_folium import folium_static
 from pathlib import Path
-import requests
 
 # Load datasets
-#df = pd.read_csv(r'C:\Users\echatzinikolaou\Desktop\bigbluerepo\python\bigblue\extras\project2\df_final.csv')
-df15 = pd.read_csv(r'C:\Users\echatzinikolaou\Desktop\bigbluerepo\python\bigblue\extras\project2\heatmap3.csv')
+df = pd.read_csv(r'movies-dashboard/04-dashboard/data_dashboard/df_final.csv')
+df15 = pd.read_csv(r'movies-dashboard/04-dashboard/data_dashboard/heatmap3.csv')
 
 # Set custom theme for a cleaner design
 st.set_page_config(page_title="Film Production Dashboard of IMDb Movie Dataset", page_icon="🎬", layout="wide")
 
-imdb_logo_path = Path(r"C:\Users\echatzinikolaou\Desktop\bigbluerepo\python\bigblue\extras\project2\IMDB_Logo_2016.png")
-
-
-def fetch_data_from_github():
-    # URL of the raw file in the GitHub repo (replace with your file URL)
-    url = "https://github.com/efchatzinikolaou/movie-dashboard/blob/main/df_final.csv"
-    
-    # Get the content of the file
-    response = requests.get(url)
-    
-    if response.status_code == 200:
-        # If the request is successful, read it into a DataFrame
-        data = pd.read_csv(pd.compat.StringIO(response.text))
-        return data
-    else:
-        st.error("Failed to retrieve the data from GitHub.")
-        return None
-
-def main():
-    st.title('Streamlit GitHub Data App')
-    st.write('This app retrieves data from a GitHub folder.')
-
-    # Load data from GitHub and store in df
-    df = fetch_data_from_github()
-
-    if df is not None:
-        st.write("Here is the data retrieved from GitHub:")
-        st.dataframe(df)  # Display the dataframe in the Streamlit app
-    else:
-        st.write("No data available.")
-
-if __name__ == "__main__":
-    main()
+imdb_logo_path = Path(r'04-dashboard/images/IMDB_Logo_2016.png')
 
 
 # Display the IMDb logo from the local path
